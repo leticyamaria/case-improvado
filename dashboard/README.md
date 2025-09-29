@@ -32,7 +32,7 @@ alter default privileges in schema mart grant select on tables to looker_reader;
 
 Host: <project>.db.supabase.co
 Port: 5432
-Database: postgres
+Database: postgre
 User: looker_reader
 Password: (<PASSWORD>)
 
