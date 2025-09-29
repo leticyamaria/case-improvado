@@ -29,6 +29,7 @@ alter default privileges in schema mart grant select on tables to looker_reader;
 ```
 
 1.2) **Looker Studio > Create > Report > Add data > PostgreSQL**
+
 Host: <project>.db.supabase.co
 Port: 5432
 Database: postgres
