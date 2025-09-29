@@ -30,14 +30,14 @@ alter default privileges in schema mart grant select on tables to looker_reader;
 
 1.2) **Looker Studio > Create > Report > Add data > PostgreSQL**
 
-Host: <project>.db.supabase.co
-Port: 5432
-Database: postgre
-User: looker_reader
-Password: (<PASSWORD>)
+Host: <project>.db.supabase.co  
+Port: 5432  
+Database: postgres  
+User: looker_reader  
+Password: (<PASSWORD>)  
 
-Schema: mart • Table: v_report_base
-use Custom Query: select * from mart.v_report_base.
+Schema: mart • Table: v_report_base  
+use Custom Query: select * from mart.v_report_base.  
 
 ## **2) Fields — Types & Default Aggregations**
 One time adjustments on database 
