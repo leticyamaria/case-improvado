@@ -1,8 +1,8 @@
 -- 20_stg_normalize.sql
 -- only native fields per platform, strongly typed
--- No cross-platform placeholders
+-- No cross-platform placeholders yet
 
--- TIKTOK -> STG (native)
+-- TIKTOK
 drop table if exists stg.tiktok_ads;
 create table stg.tiktok_ads as
 select
@@ -28,7 +28,7 @@ select
 from raw.tiktok_ads;
 create index if not exists idx_stg_tiktok_date on stg.tiktok_ads(date);
 
--- GOOGLE -> STG (native)
+-- GOOGLE
 drop table if exists stg.google_ads;
 create table stg.google_ads as
 select
@@ -52,7 +52,7 @@ select
 from raw.google_ads;
 create index if not exists idx_stg_google_date on stg.google_ads(date);
 
--- FACEBOOK -> STG (native)
+-- FACEBOOK
 drop table if exists stg.facebook_ads;
 create table stg.facebook_ads as
 select
