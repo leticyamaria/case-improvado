@@ -1,7 +1,8 @@
 # Looker Studio – Data Source & Dashboard Guide
 
 **Stack:** Supabase (Postgres) + SQL + Looker Studio  
-**Primary source:** `mart.v_report_base` 
+**Primary source:** `mart.v_report_base`  
+Link: ['[Case]Improvado_LeticyaC'](https://lookerstudio.google.com/reporting/184c64e4-d4fb-4a58-803a-aa436e2de6b3/page/05hZF)
 
 ---
 
@@ -62,48 +63,76 @@ One time adjustments on database
 Ration of sums > correct under any filter group. 
 
 Create the following custom fields in the data source:
-
-**CTR (percent)**
 ```sql 
+-- CTR (percent)
 SUM(clicks) / SUM (impressions)
-```
 
-**CPC (currency)**
-```sql 
+-- CPC (currency)
 SUM(spend) / SUM (clicks)
-```
 
-**CPM (currency)**
-```sql 
+-- CPM (currency)
 (SUM(spend)*1000) / SUM (impressions)
-```
 
-**CPA (currency)**
-```sql 
+-- CPA (currency)
 SUM(spend) / SUM (conversions)
-```
 
-**VW25_rate (percent)**
-```sql 
+-- VW25_rate (percent)
 SUM(video_watch_25)  / SUM(video_views)
-```
-**VW50_rate (percent)**
-```sql 
+
+-- VW50_rate (percent)
 SUM(video_watch_50)  / SUM(video_views)
-```
-**VW75_rate (percent)**
-```sql 
+
+-- VW75_rate (percent)
 SUM(video_watch_75)  / SUM(video_views)
-```
-**VW100_rate (percent)**
-```sql 
+
+-- VW100_rate (percent)
 SUM(video_watch_100)  / SUM(video_views)
-```
-**frequency_calc (number)**
-```sql 
+
+-- frequency_calc (number)
 SUM(impressions) / NULLIF(SUM(reach), 0)
-```
-**engagement_rate_calc (percent)**
-```sql 
+
+-- engagement_rate_calc (percent)
 SUM(engagement_rate * impressions) / SUM(impressions)
 ```
+
+
+## 4) Layout
+- Filters  
+  - Dropdowns: `adgroup_name`, `campaign_name`, `platform`
+  - Date range selector
+- Highlights
+  - Best platform by CPA (table, limit=1)
+  - Best campaign by CPA (table, limit=1)
+  - Best day by CPA (table, limit=1)
+- Conversion Funnel
+  - Impressions (scorecard)
+  - Clicks (scorecard, compared to impressions)
+  - Conversions (scorecard, compared to clicks)
+- Totals
+  - Spend (scorecard)
+  - CPC (scorecard)
+  - CPA (scorecard)
+  - CTR (scorecard)
+  - CPM (scorecard)
+- Spend vs CPA by platform (combined graph)
+- Impressions vs spend by date (combined graph)
+- Clicks vs spend by date (combined graph)
+- Conversion vs spend by date (combined graph)
+- Tiktok performance
+  - Funnel
+    - video_watch
+    - video_watch_25
+    - video_watch_50
+    - video_watch_75
+    - video_watch_100
+  - Likes (scorecard)
+  - Shares (scorecard)
+  - Comments (scorecard)
+- Google performance
+  - Conversion value (scorecard, sum)
+  - Quality score (scorecard, avg)
+  - Search impresion share (scorecard, avg)
+- Facebook performance
+  - Reach (scorecard, sum)
+  - Engagement rate (scorecard, avg)
+  - Frequency (scorecard, avg)
